@@ -89,150 +89,150 @@
 
     <div class="main" id="main">
 
-    <div class="section active fade-in" id="dashboard">
-        <!-- Dashboard Banner -->
-        <div class="banner">
-            <i class="fas fa-chart-line"></i>
-            📊 Real-Time Dashboard Metrics
-        </div>
-
-        <!-- Dashboard Cards -->
-        <div class="card-grid" id="dashboardCards">
-            <div class="card">
-                <i class="fas fa-wine-bottle card-icon"></i>
-                <h3>Total Milk (L)</h3>
-                <h2 id="cardTotalMilk">0</h2>
-                <p class="card-change" id="cardChangeMilk">N/A</p>
+        <div class="section active fade-in" id="dashboard">
+            <!-- Dashboard Banner -->
+            <div class="banner">
+                <i class="fas fa-chart-line"></i>
+                📊 Real-Time Dashboard Metrics
             </div>
-            <div class="card">
-                <i class="fas fa-rupee-sign card-icon"></i>
-                <h3>Total Revenue</h3>
-                <h2 id="cardTotalRevenue">₹0</h2>
-                <p class="card-change" id="cardChangeRevenue">N/A</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-user card-icon"></i>
-                <h3>Customers</h3>
-                <h2 id="cardTotalCustomers">0</h2>
-                <p class="card-change" id="cardChangeCustomers">N/A</p>
-            </div>
-        </div>
 
-        <!-- Sales Records Section -->
-        <div class="section-header">
-            <h3 class="section-title">
-                <i class="fas fa-file-invoice-dollar"></i>
-                💼 Sales Records
-            </h3>
-            <button class="btn btn-success" onclick="openDashboardModal()">
-                <i class="fas fa-plus"></i> Add Record
-            </button>
-            <input type="text" placeholder="Search..." id="dashboardSearch" class="form-control" />
-        </div>
-
-        <!-- Sales Table -->
-        <div class="data-section">
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Milk (L)</th>
-                        <th>Revenue (₹)</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="dashboardTableBody"></tbody>
-            </table>
-        </div>
-
-        <!-- Revenue Trends Chart -->
-        <div class="chart-container">
-            <div class="chart-box">
-                <div class="chart-header">
-                    <div class="chart-title">
-                        <i class="fas fa-chart-bar"></i>
-                        📈 Revenue Trends
-                    </div>
+            <!-- Dashboard Cards -->
+            <div class="card-grid" id="dashboardCards">
+                <div class="card">
+                    <i class="fas fa-wine-bottle card-icon"></i>
+                    <h3>Total Milk (L)</h3>
+                    <h2 id="cardTotalMilk">0</h2>
+                    <p class="card-change" id="cardChangeMilk">N/A</p>
                 </div>
-                <div id="dashboardChart"></div>
+                <div class="card">
+                    <i class="fas fa-rupee-sign card-icon"></i>
+                    <h3>Total Revenue</h3>
+                    <h2 id="cardTotalRevenue">₹0</h2>
+                    <p class="card-change" id="cardChangeRevenue">N/A</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-user card-icon"></i>
+                    <h3>Customers</h3>
+                    <h2 id="cardTotalCustomers">0</h2>
+                    <p class="card-change" id="cardChangeCustomers">N/A</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Customer Revenue Distribution Chart -->
-        <div class="chart-container">
-            <div class="chart-box">
-                <div class="chart-header">
-                    <div class="chart-title">
-                        <i class="fas fa-chart-pie"></i>
-                        📊 Customer Revenue Distribution
+            <!-- Sales Records Section -->
+            <div class="section-header">
+                <h3 class="section-title">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    💼 Sales Records
+                </h3>
+                <button class="btn btn-success" onclick="openDashboardModal()">
+                    <i class="fas fa-plus"></i> Add Record
+                </button>
+                <input type="text" placeholder="Search..." id="dashboardSearch" class="form-control" />
+            </div>
+
+            <!-- Sales Table -->
+            <div class="data-section">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Milk (L)</th>
+                            <th>Revenue (₹)</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboardTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Revenue Trends Chart -->
+            <div class="chart-container">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fas fa-chart-bar"></i>
+                            📈 Revenue Trends
+                        </div>
                     </div>
-                    <div class="chart-actions">
-                        <button class="btn btn-export" onclick="exportDashboardChart()">
-                            <i class="fas fa-download"></i> Export
+                    <div id="dashboardChart"></div>
+                </div>
+            </div>
+
+            <!-- Customer Revenue Distribution Chart -->
+            <div class="chart-container">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fas fa-chart-pie"></i>
+                            📊 Customer Revenue Distribution
+                        </div>
+                        <div class="chart-actions">
+                            <button class="btn btn-export" onclick="exportDashboardChart()">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    <canvas id="polarChart" height="400"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity Log -->
+            <div class="alert-container">
+                <h4>
+                    <i class="fas fa-history"></i>
+                    🕒Recent Activity
+                </h4>
+                <ul id="dashboardActivity" style="padding-left: 1rem; line-height: 1.6;"></ul>
+            </div>
+
+            <!-- Modal for Adding/Editing Sales Record -->
+            <div class="modal" id="dashboardModal">
+                <div class="modal-content">
+                    <button class="modal-close" onclick="closeDashboardModal()">&times;</button>
+                    <div class="modal-title" id="modalTitle">Add Sale</div>
+
+                    <div id="validationSummary" class="validation-summary"></div>
+
+                    <div class="form-group">
+                        <label>Customer Name <span class="required">*</span></label>
+                        <input type="text" id="inputCustomer" class="form-control" required />
+                        <div id="customerError" class="error-message">Customer name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Milk Quantity (L) <span class="required">*</span></label>
+                        <input type="number" id="inputMilk" class="form-control" min="1" step="0.1" />
+                        <div id="milkError" class="error-message">Milk quantity must be at least 1L</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Revenue (₹) <span class="required">*</span></label>
+                        <input type="number" id="inputRevenue" class="form-control" min="0" step="1" />
+                        <div id="revenueError" class="error-message">Revenue must be a positive number</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Date <span class="required">*</span></label>
+                        <input type="date" id="inputDate" class="form-control" />
+                        <div id="dateError" class="error-message">Date is required and cannot be in the future</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Status <span class="required">*</span></label>
+                        <select id="inputStatus" class="form-control">
+                            <option>Completed</option>
+                            <option>Pending</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-success" onclick="saveDashboardRecord()">
+                            <i class="fas fa-save"></i> 💾 Save
+                        </button>
+                        <button class="btn btn-outline" onclick="closeDashboardModal()">
+                            <i class="fas fa-times"></i> Cancel
                         </button>
                     </div>
                 </div>
-                <canvas id="polarChart" height="400"></canvas>
             </div>
         </div>
-
-        <!-- Recent Activity Log -->
-        <div class="alert-container">
-            <h4>
-                <i class="fas fa-history"></i>
-                🕒Recent Activity
-            </h4>
-            <ul id="dashboardActivity" style="padding-left: 1rem; line-height: 1.6;"></ul>
-        </div>
-
-        <!-- Modal for Adding/Editing Sales Record -->
-        <div class="modal" id="dashboardModal">
-            <div class="modal-content">
-                <button class="modal-close" onclick="closeDashboardModal()">&times;</button>
-                <div class="modal-title" id="modalTitle">Add Sale</div>
-                
-                <div id="validationSummary" class="validation-summary"></div>
-                
-                <div class="form-group">
-                    <label>Customer Name <span class="required">*</span></label>
-                    <input type="text" id="inputCustomer" class="form-control" required />
-                    <div id="customerError" class="error-message">Customer name is required</div>
-                </div>
-                <div class="form-group">
-                    <label>Milk Quantity (L) <span class="required">*</span></label>
-                    <input type="number" id="inputMilk" class="form-control" min="1" step="0.1" />
-                    <div id="milkError" class="error-message">Milk quantity must be at least 1L</div>
-                </div>
-                <div class="form-group">
-                    <label>Revenue (₹) <span class="required">*</span></label>
-                    <input type="number" id="inputRevenue" class="form-control" min="0" step="1" />
-                    <div id="revenueError" class="error-message">Revenue must be a positive number</div>
-                </div>
-                <div class="form-group">
-                    <label>Date <span class="required">*</span></label>
-                    <input type="date" id="inputDate" class="form-control" />
-                    <div id="dateError" class="error-message">Date is required and cannot be in the future</div>
-                </div>
-                <div class="form-group">
-                    <label>Status <span class="required">*</span></label>
-                    <select id="inputStatus" class="form-control">
-                        <option>Completed</option>
-                        <option>Pending</option>
-                    </select>
-                </div>
-                <div class="form-actions">
-                    <button class="btn btn-success" onclick="saveDashboardRecord()">
-                        <i class="fas fa-save"></i> 💾 Save
-                    </button>
-                    <button class="btn btn-outline" onclick="closeDashboardModal()">
-                        <i class="fas fa-times"></i> Cancel
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
         <!-- Farmer Management Section -->
         <div class="section fade-in" id="farmer-mgmt">
@@ -504,415 +504,459 @@
 
         </div>
 
-        <div class="section fade-in" id="chilling">
-            <div class="banner">Chilling Centers</div>
-            <div class="card-grid">
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-warehouse card-icon"
-                            style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
-                    </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Active Centers</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">15</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
-                    </div>
-                </div>
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-boxes card-icon" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
-                    </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Total Capacity</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">50,000 L</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
-                    </div>
-                </div>
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-box-open card-icon" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
-                    </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Current Storage</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">32,450 L</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
-                    </div>
-                </div>
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-temperature-low card-icon"
-                            style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
-                    </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Avg. Temperature</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">4°C</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="banner">Capacity Utilization</div>
-            <div class="chart-container" style="display:flex; flex-wrap:wrap; gap:2rem;">
-                <div class="chart-box fade-up"
-                    style="min-width:300px; width:100%; flex:1;; margin-bottom: 2rem; min-width: 300px; width: 100%; flex: 1; margin-bottom:2rem; flex: 1 1 100%;">
-                    <div class="chart-header">
-                        <div class="chart-title">Storage Utilization by Center</div>
-                        <div class="chart-actions">
-                            <button class="btn btn-export" onclick="exportChartToPDF('capacityChart')">
-                                <i class="fas fa-file-pdf"></i> PDF
+        <div class="section fade-in" id="chilling">
+            <div class="container">
+                <!-- Banner -->
+                <div class="banner fade-in">
+                    Chilling Centers Management
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="cards-grid">
+                    <div class="card">
+                        <i class="fas fa-building card-icon"></i>
+                        <h4>Total Centers</h4>
+                        <p id="summary_totalCenters">0</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-thermometer-half card-icon"></i>
+                        <h4>Avg. Temperature</h4>
+                        <p id="summary_avgTemp">0°C</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-tint card-icon"></i>
+                        <h4>Total Capacity</h4>
+                        <p id="summary_totalCapacity">0 L</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-tint card-icon"></i>
+                        <h4>Current Capacity</h4>
+                        <p id="summary_currentCapacity">0 L</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-solar-panel card-icon"></i>
+                        <h4>Energy Utilization</h4>
+                        <p id="summary_energyMix">0% Solar</p>
+                    </div>
+                </div>
+
+                <!-- Add New Button -->
+                <div class="section-actions">
+                    <button class="btn-primary btn" id="addCenterBtn">
+                        <i class="fa-plus fas"></i> Add New Center
+                    </button>
+                </div>
+
+                <!-- Form Container -->
+                <div class="profile-form" id="formContainer" style="display:none;">
+                    <h3 id="formTitle"><i class="fa-plus-circle fas"></i> Add New Chilling Center</h3>
+                    <form class="settings-grid" id="entryForm">
+                        <input id="editId" type="hidden" />
+                        <div class="form-group">
+                            <label for="centerName">Center Name</label>
+                            <input class="form-control" id="centerName" required type="text" />
+                            <div class="error-message" id="nameError">Center name must be at least 2 characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input class="form-control" id="location" required type="text" />
+                            <div class="error-message" id="locationError">Location must be at least 2 characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="totalCapacity">Total Capacity (L)</label>
+                            <input class="form-control" id="totalCapacity" min="1000" required type="number"
+                                value="1000" />
+                            <div class="error-message" id="totalCapacityError">Capacity must be at least 1,000 L</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentCapacity">Current Capacity (L)</label>
+                            <input class="form-control" id="currentCapacity" min="0" required type="number" value="0" />
+                            <div class="error-message" id="currentCapacityError">Current capacity cannot exceed total
+                                capacity</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="temperature">Temperature (°C)</label>
+                            <input class="form-control" id="temperature" required step="0.1" type="number"
+                                value="4.0" />
+                            <div class="error-message" id="temperatureError">Temperature must be between 0°C and 10°C
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" required>
+                                <option value="">Select Status</option>
+                                <option selected value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="Maintenance">Maintenance</option>
+                            </select>
+                            <div class="error-message" id="statusError">Please select a status</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="energyType">Energy Source</label>
+                            <select class="form-control" id="energyType" required>
+                                <option value="">Select Energy Source</option>
+                                <option value="Grid Power">Grid Power</option>
+                                <option selected value="Solar">Solar</option>
+                                <option value="Generator">Generator</option>
+                                <option value="Battery">Battery</option>
+                            </select>
+                            <div class="error-message" id="energyTypeError">Please select an energy source</div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary btn-outline btn" id="cancelBtn" type="button">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                            <button class="btn-primary btn btn-success" id="submitBtn" type="submit">
+                                <i class="fa-plus fas"></i> Add Center
                             </button>
                         </div>
-                    </div>
-                    <canvas id="capacityChart"></canvas>
+                    </form>
                 </div>
-            </div>
 
-            <div class="banner">Maintenance Alerts</div>
-            <div class="alert-container">
-                <div class="alert-item warning" style="background: var(--accent);">
-                    <i class="fas fa-exclamation-triangle alert-icon"></i>
-                    <div>
-                        <strong>Center CH1003</strong> - Scheduled maintenance tomorrow from 2-4 PM
+                <!-- Search and Filter -->
+                <div class="data-section">
+                    <div class="section-header">
+                        <h3 class="section-title"><i class="fas fa-list"></i> Chilling Centers</h3>
+                        <div class="search-container">
+                            <input class="form-control" id="searchInput" placeholder="Search by any field..."
+                                type="text" />
+                        </div>
                     </div>
+                    <!-- Table -->
+                    <table class="custom-table" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Center Name</th>
+                                <th>Location</th>
+                                <th>Capacity (L)</th>
+                                <th>Temp (°C)</th>
+                                <th>Status</th>
+                                <th>Energy Source</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
                 </div>
-                <div class="alert-item">
-                    <i class="fas fa-info-circle alert-icon"></i>
-                    <div>
-                        <strong>Center CH1005</strong> - Temperature sensor needs calibration
-                    </div>
-                </div>
-                <div class="alert-item success">
-                    <i class="fas fa-check-circle alert-icon"></i>
-                    <div>
-                        <strong>Center CH1001</strong> - Monthly maintenance completed
-                    </div>
-                </div>
-            </div>
-            <div class="banner">Center Details</div>
-            <div class="table-wrapper">
-                <table class="custom-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-                    <thead>
-                        <tr>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Center ID</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Location</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Capacity (L)</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Current (L)</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Temp (°C)</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">CH1001</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Village A</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">5,000</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3,245</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4.2</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-completed">Operational</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">CH1002</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Village B</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3,500</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">2,980</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3.8</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-completed">Operational</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">CH1003</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Village C</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4,000</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">1,245</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4.5</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-pending">Maintenance</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <div class="section fade-in" id="processing">
-            <div class="banner">Processing Plants</div>
-            <div class="card-grid">
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-industry card-icon" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                <!-- Charts Section -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3 class="chart-title"><i class="fa-chart-line fas"></i> Performance Dashboard</h3>
                     </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Plants Online</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">5</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
+                    <div class="chart-grid">
+                        <div class="chart-wrapper" id="temperatureChart"></div>
+                        <div class="chart-wrapper" id="capacityChart"></div>
+                        <div class="chart-wrapper" id="energyChart"></div>
+                        <div class="chart-wrapper" id="tempPerformanceChart"></div>
                     </div>
                 </div>
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-chart-line card-icon"
-                            style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+
+                <!-- Recent Activity -->
+                <div class="data-section">
+                    <div class="section-header">
+                        <h3 class="section-title"><i class="fa-history fas"></i> Recent Activity</h3>
                     </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Daily Output</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">30,000 L</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
-                    </div>
-                </div>
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-tachometer-alt card-icon"
-                            style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
-                    </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Utilization</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">85%</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
-                    </div>
-                </div>
-                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
-                    <div
-                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                        <i class="fas fa-clock card-icon" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
-                    </div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #6b7280;">Avg. Downtime</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;">2%</div>
-                        <div style="font-size: 0.85rem; color: #16a34a;"></div>
+                    <div id="activityContainer">
+                        <!-- Activity items will be added here -->
                     </div>
                 </div>
             </div>
 
-            <div class="banner">Production Line Overview</div>
-            <div class="flow-container">
-                <div class="flow-step">
-                    <i class="fas fa-tint flow-icon"></i>
-                    <div class="flow-label">Raw Milk</div>
-                </div>
-                <div class="flow-step">
-                    <i class="fas fa-filter flow-icon"></i>
-                    <div class="flow-label">Filtration</div>
-                </div>
-                <div class="flow-step">
-                    <i class="fas fa-temperature-high flow-icon"></i>
-                    <div class="flow-label">Pasteurization</div>
-                </div>
-                <div class="flow-step">
-                    <i class="fas fa-blender flow-icon"></i>
-                    <div class="flow-label">Processing</div>
-                </div>
-                <div class="flow-step">
-                    <i class="fas fa-box flow-icon"></i>
-                    <div class="flow-label">Packaging</div>
-                </div>
-            </div>
-
-            <div class="banner">Plant Efficiency Metrics</div>
-            <div class="gauge-container">
-                <div class="gauge">
-                    <div class="gauge-title">Main Plant Utilization</div>
-                    <div class="gauge-value">87%</div>
-                    <div class="gauge-bar">
-                        <div class="gauge-fill" style="width: 87%"></div>
-                    </div>
-                </div>
-                <div class="gauge">
-                    <div class="gauge-title">North Plant Utilization</div>
-                    <div class="gauge-value">78%</div>
-                    <div class="gauge-bar">
-                        <div class="gauge-fill" style="width: 78%"></div>
-                    </div>
-                </div>
-                <div class="gauge">
-                    <div class="gauge-title">South Plant Utilization</div>
-                    <div class="gauge-value">65%</div>
-                    <div class="gauge-bar">
-                        <div class="gauge-fill" style="width: 65%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner">Plant Operations</div>
-            <div class="table-wrapper">
-                <table class="custom-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-                    <thead>
-                        <tr>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Plant ID</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Location</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Capacity (L/day)</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Today's Output</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">PL1001</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Main Facility</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">10,000</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8,450</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-completed">Running</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">PL1002</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">North Facility</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8,000</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">7,200</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-completed">Running</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">PL1003</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">South Facility</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">6,000</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">5,100</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-pending">Cleaning</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section fade-in" id="quality">
-            <div class="banner">Quality Control</div>
-            <div class="cards-grid">
+            <div style="display: none;">
+                <div class="banner">Chilling Centers</div>
                 <div class="card-grid">
                     <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
                         <div
                             style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                            <i class="fas fa-tint" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                            <i class="fas fa-warehouse card-icon"
+                                style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
                         </div>
                         <div>
-                            <div style="font-size: 0.9rem; color: #6b7280;">Total Milk Collected</div>
-                            <div style="font-size: 1.8rem; font-weight: bold;">24,500 L</div>
-                            <div style="font-size: 0.85rem; color: #16a34a;">↑ 3.2% Today</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Active Centers</div>
+                            <div style="font-size: 1.8rem; font-weight: bold;">15</div>
+                            <div style="font-size: 0.85rem; color: #16a34a;"></div>
                         </div>
                     </div>
                     <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
                         <div
                             style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                            <i class="fas fa-rupee-sign" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                            <i class="fas fa-boxes card-icon"
+                                style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
                         </div>
                         <div>
-                            <div style="font-size: 0.9rem; color: #6b7280;">Revenue</div>
-                            <div style="font-size: 1.8rem; font-weight: bold;">₹ 1,200,000</div>
-                            <div style="font-size: 0.85rem; color: #dc2626;">↓ 1.2% This Month</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Total Capacity</div>
+                            <div style="font-size: 1.8rem; font-weight: bold;">50,000 L</div>
+                            <div style="font-size: 0.85rem; color: #16a34a;"></div>
                         </div>
                     </div>
                     <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
                         <div
                             style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                            <i class="fas fa-user-check" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                            <i class="fas fa-box-open card-icon"
+                                style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
                         </div>
                         <div>
-                            <div style="font-size: 0.9rem; color: #6b7280;">Active Customers</div>
-                            <div style="font-size: 1.8rem; font-weight: bold;">1,850</div>
-                            <div style="font-size: 0.85rem; color: #16a34a;">↑ 4.1% Growth</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Current Storage</div>
+                            <div style="font-size: 1.8rem; font-weight: bold;">32,450 L</div>
+                            <div style="font-size: 0.85rem; color: #16a34a;"></div>
                         </div>
                     </div>
                     <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
                         <div
                             style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
-                            <i class="fas fa-truck" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                            <i class="fas fa-temperature-low card-icon"
+                                style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
                         </div>
                         <div>
-                            <div style="font-size: 0.9rem; color: #6b7280;">Deliveries</div>
-                            <div style="font-size: 1.8rem; font-weight: bold;">980</div>
-                            <div style="font-size: 0.85rem; color: #16a34a;">↑ 2.4% This Week</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Avg. Temperature</div>
+                            <div style="font-size: 1.8rem; font-weight: bold;">4°C</div>
+                            <div style="font-size: 0.85rem; color: #16a34a;"></div>
                         </div>
                     </div>
+                </div>
+
+                <div class="banner">Capacity Utilization</div>
+                <div class="chart-container" style="display:flex; flex-wrap:wrap; gap:2rem;">
+                    <div class="chart-box fade-up"
+                        style="min-width:300px; width:100%; flex:1;; margin-bottom: 2rem; min-width: 300px; width: 100%; flex: 1; margin-bottom:2rem; flex: 1 1 100%;">
+                        <div class="chart-header">
+                            <div class="chart-title">Storage Utilization by Center</div>
+                            <div class="chart-actions">
+                                <button class="btn btn-export" onclick="exportChartToPDF('capacityChart')">
+                                    <i class="fas fa-file-pdf"></i> PDF
+                                </button>
+                            </div>
+                        </div>
+                        <canvas id="capacityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="banner">Maintenance Alerts</div>
+                <div class="alert-container">
+                    <div class="alert-item warning" style="background: var(--accent);">
+                        <i class="fas fa-exclamation-triangle alert-icon"></i>
+                        <div>
+                            <strong>Center CH1003</strong> - Scheduled maintenance tomorrow from 2-4 PM
+                        </div>
+                    </div>
+                    <div class="alert-item">
+                        <i class="fas fa-info-circle alert-icon"></i>
+                        <div>
+                            <strong>Center CH1005</strong> - Temperature sensor needs calibration
+                        </div>
+                    </div>
+                    <div class="alert-item success">
+                        <i class="fas fa-check-circle alert-icon"></i>
+                        <div>
+                            <strong>Center CH1001</strong> - Monthly maintenance completed
+                        </div>
+                    </div>
+                </div>
+                <div class="banner">Center Details</div>
+                <div class="table-wrapper">
+                    <table class="custom-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                        <thead>
+                            <tr>
+                                <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Center ID</th>
+                                <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Location</th>
+                                <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Capacity (L)</th>
+                                <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Current (L)</th>
+                                <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Temp (°C)</th>
+                                <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">CH1001</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Village A</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">5,000</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3,245</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4.2</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
+                                    <span class="status-badge status-completed">Operational</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">CH1002</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Village B</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3,500</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">2,980</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3.8</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
+                                    <span class="status-badge status-completed">Operational</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">CH1003</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Village C</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4,000</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">1,245</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4.5</td>
+                                <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
+                                    <span class="status-badge status-pending">Maintenance</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in" id="processing">
+            <div class="banner">🥛 Processing Plant Management</div>
+
+            <!-- Cards -->
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-industry"></i>
+                    <h3>Total Plants</h3>
+                    <h2 id="procTotalPlants">0</h2>
+                </div>
+                <div class="card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Total Capacity</h3>
+                    <h2 id="procTotalCapacity">0 L</h2>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Active Plants</h3>
+                    <h2 id="procActivePlants">0</h2>
+                </div>
+                <div class="card">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Total Products</h3>
+                    <h2 id="procTotalProducts">0</h2>
                 </div>
             </div>
 
-            <div class="banner">Quality Test Results</div>
-            <div class="chart-container" style="display:flex; flex-wrap:wrap; gap:2rem;">
-                <div class="chart-box fade-up"
-                    style="min-width:300px; width:100%; flex:1;; margin-bottom: 2rem; min-width: 300px; width: 100%; flex: 1; margin-bottom:2rem; flex: 1 1 100%;">
-                    <div class="chart-header">
-                        <div class="chart-title">Test Result History (Last 30 Days)</div>
-                        <div class="chart-actions">
-                            <button class="btn btn-export" onclick="exportChartToPDF('testHistoryChart')">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </button>
-                        </div>
-                    </div>
-                    <canvas id="testHistoryChart"></canvas>
-                </div>
-                <div class="chart-box fade-up"
-                    style="min-width:300px; width:100%; flex:1;; margin-bottom: 2rem; min-width: 300px; width: 100%; flex: 1; margin-bottom:2rem; flex: 1 1 100%;">
-                    <div class="chart-header">
-                        <div class="chart-title">Failure Reasons</div>
-                        <div class="chart-actions">
-                            <button class="btn btn-export" onclick="exportChartToPDF('failureReasonsChart')">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </button>
-                        </div>
-                    </div>
-                    <canvas id="failureReasonsChart"></canvas>
+            <!-- Filters -->
+            <div class="filter-list">
+                <input type="text" class="form-control" id="procSearch" placeholder="🔍 Search Plant Name"
+                    oninput="renderProcessingAll()">
+                <select class="form-control" id="procStatusFilter" onchange="renderProcessingAll()">
+                    <option value="">All Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Maintenance">Maintenance</option>
+                </select>
+            </div>
+
+            <!-- View Switch & Add Button -->
+            <div class="section-header">
+                <div class="section-actions">
+                    <button class="chart-btn active" onclick="toggleProcView('cards')"><i class="fas fa-th-large"></i>
+                        Card View</button>
+                    <button class="chart-btn" onclick="toggleProcView('table')"><i class="fas fa-table"></i> Table
+                        View</button>
+                    <button class="btn btn-primary" onclick="openProcModal()"><i class="fas fa-plus"></i> Add
+                        Plant</button>
                 </div>
             </div>
-            <div class="banner">Recent Quality Tests</div>
-            <div class="table-wrapper">
-                <table class="custom-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+
+            <!-- Card View -->
+            <div id="procCardView" class="cards-grid"></div>
+
+            <!-- Table View -->
+            <div id="procTableView" class="data-section" style="display: none">
+                <table class="custom-table">
                     <thead>
                         <tr>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Test ID</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Batch</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Fat %</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">SNF %</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Acidity</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Result</th>
-                            <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Time</th>
+                            <th>Plant</th>
+                            <th>Location</th>
+                            <th>Capacity</th>
+                            <th>Status</th>
+                            <th>Manager</th>
+                            <th>Products</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">T3045</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">B10045</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4.2</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.5</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">0.14</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-completed">Passed</span>
-                            </td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Today, 08:30 AM</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">T3044</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">B10044</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3.8</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.2</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">0.16</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
-                                <span class="status-badge status-completed">Passed</span>
-                            </td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Today, 08:45 AM</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">T3043</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">B10043</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3.5</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">7.9</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">0.18</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;"><span
-                                    class="status-badge status-pending">Failed</span></td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Today, 09:15 AM</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="procTableBody"></tbody>
                 </table>
             </div>
+
+            <!-- Charts Section -->
+            <div class="chart-container">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <h4 class="chart-title"><i class="fas fa-chart-bar"></i> Plant-wise Stacked Products</h4>
+                    </div>
+                    <canvas id="procStackedBarChart" height="400"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="log-section">
+                <h2><i class="fas fa-history"></i> Recent Processing Activities</h2>
+                <div class="log-list" id="procActivityLogs"></div>
+            </div>
+
+            <!-- Modal Form -->
+            <div id="procModal" class="modal">
+                <div class="modal-content">
+                    <button class="modal-close" onclick="closeProcModal()">&times;</button>
+                    <h2 class="modal-title" id="procModalTitle">Add Processing Plant</h2>
+                    <div class="form-group">
+                        <label>Plant Name</label>
+                        <input type="text" id="procPlantName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="procPlantLocation" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Capacity (L)</label>
+                        <input type="number" id="procPlantCapacity" class="form-control" min="1000" max="1000000"
+                            required>
+                        <small class="form-text">Min: 1,000L - Max: 1,000,000L</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="procPlantStatus" class="form-control" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Manager</label>
+                        <input type="text" id="procPlantManager" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Products</label>
+                        <div id="procProductInputs">
+                            <div class="product-row">
+                                <select class="productName form-control">
+                                    <option value="">Select Product</option>
+                                    <option value="Milk">Milk</option>
+                                    <option value="Cheese">Cheese</option>
+                                    <option value="Butter">Butter</option>
+                                    <option value="Ice Cream">Ice Cream</option>
+                                    <option value="Yogurt">Yogurt</option>
+                                    <option value="Ghee">Ghee</option>
+                                    <option value="Paneer">Paneer</option>
+                                </select>
+                                <input type="number" class="productQty form-control" min="0" placeholder="Liters">
+                                <button class="btn btn-danger" onclick="removeProcProduct(this)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="addProcProduct()">+ Add Product</button>
+                        <div id="capacityWarning" class="text-danger mt-2" style="display: none;">
+                            Total products exceed plant capacity!
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-warning" onclick="closeProcModal()">Cancel</button>
+                        <button class="btn btn-success" onclick="saveProcPlant()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in" id="quality">
         </div>
 
         <div class="section fade-in" id="inventory">
@@ -2785,6 +2829,135 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="banner">Quality Control</div>
+        <div class="cards-grid">
+            <div class="card-grid">
+                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
+                    <div
+                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
+                        <i class="fas fa-tint" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #6b7280;">Total Milk Collected</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">24,500 L</div>
+                        <div style="font-size: 0.85rem; color: #16a34a;">↑ 3.2% Today</div>
+                    </div>
+                </div>
+                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
+                    <div
+                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
+                        <i class="fas fa-rupee-sign" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #6b7280;">Revenue</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">₹ 1,200,000</div>
+                        <div style="font-size: 0.85rem; color: #dc2626;">↓ 1.2% This Month</div>
+                    </div>
+                </div>
+                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
+                    <div
+                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
+                        <i class="fas fa-user-check" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #6b7280;">Active Customers</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">1,850</div>
+                        <div style="font-size: 0.85rem; color: #16a34a;">↑ 4.1% Growth</div>
+                    </div>
+                </div>
+                <div class="card fade-up" style="display: flex; align-items: center; gap: 1rem;">
+                    <div
+                        style="background-color: rgba(66,133,244,0.1); padding: 0.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;">
+                        <i class="fas fa-truck" style="font-size: 1.25rem; color: #1d4ed8; margin: 0;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #6b7280;">Deliveries</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">980</div>
+                        <div style="font-size: 0.85rem; color: #16a34a;">↑ 2.4% This Week</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner">Quality Test Results</div>
+        <div class="chart-container" style="display:flex; flex-wrap:wrap; gap:2rem;">
+            <div class="chart-box fade-up"
+                style="min-width:300px; width:100%; flex:1;; margin-bottom: 2rem; min-width: 300px; width: 100%; flex: 1; margin-bottom:2rem; flex: 1 1 100%;">
+                <div class="chart-header">
+                    <div class="chart-title">Test Result History (Last 30 Days)</div>
+                    <div class="chart-actions">
+                        <button class="btn btn-export" onclick="exportChartToPDF('testHistoryChart')">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </button>
+                    </div>
+                </div>
+                <canvas id="testHistoryChart"></canvas>
+            </div>
+            <div class="chart-box fade-up"
+                style="min-width:300px; width:100%; flex:1;; margin-bottom: 2rem; min-width: 300px; width: 100%; flex: 1; margin-bottom:2rem; flex: 1 1 100%;">
+                <div class="chart-header">
+                    <div class="chart-title">Failure Reasons</div>
+                    <div class="chart-actions">
+                        <button class="btn btn-export" onclick="exportChartToPDF('failureReasonsChart')">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </button>
+                    </div>
+                </div>
+                <canvas id="failureReasonsChart"></canvas>
+            </div>
+        </div>
+        <div class="banner">Recent Quality Tests</div>
+        <div class="table-wrapper">
+            <table class="custom-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <thead>
+                    <tr>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Test ID</th>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Batch</th>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Fat %</th>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">SNF %</th>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Acidity</th>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Result</th>
+                        <th style="background: #f3f4f6; padding: 12px 16px; text-align: left;">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">T3045</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">B10045</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">4.2</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.5</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">0.14</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
+                            <span class="status-badge status-completed">Passed</span>
+                        </td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Today, 08:30 AM</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">T3044</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">B10044</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3.8</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.2</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">0.16</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
+                            <span class="status-badge status-completed">Passed</span>
+                        </td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Today, 08:45 AM</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">T3043</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">B10043</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">3.5</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">7.9</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">0.18</td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;"><span
+                                class="status-badge status-pending">Failed</span></td>
+                        <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Today, 09:15 AM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </body>
 
@@ -5907,156 +6080,156 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-        let dashboardData = [];
-        let editIndex = -1;
-        let dashboardChart;
-        let polarChart;
+    let dashboardData = [];
+    let editIndex = -1;
+    let dashboardChart;
+    let polarChart;
 
-        // Validation functions
-        function validateForm() {
-            const customer = document.getElementById("inputCustomer").value.trim();
-            const milk = document.getElementById("inputMilk").value;
-            const revenue = document.getElementById("inputRevenue").value;
-            const date = document.getElementById("inputDate").value;
-            
-            let isValid = true;
-            const errors = [];
-            
-            // Reset errors
-            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error'));
-            document.getElementById('validationSummary').style.display = 'none';
-            
-            // Validate customer
-            if (!customer) {
-                document.getElementById('customerError').style.display = 'block';
-                document.getElementById('inputCustomer').classList.add('error');
-                isValid = false;
-                errors.push("Customer name is required");
-            }
-            
-            // Validate milk
-            if (!milk || parseFloat(milk) < 1) {
-                document.getElementById('milkError').style.display = 'block';
-                document.getElementById('inputMilk').classList.add('error');
-                isValid = false;
-                errors.push("Milk quantity must be at least 1L");
-            }
-            
-            // Validate revenue
-            if (!revenue || parseFloat(revenue) <= 0) {
-                document.getElementById('revenueError').style.display = 'block';
-                document.getElementById('inputRevenue').classList.add('error');
-                isValid = false;
-                errors.push("Revenue must be a positive number");
-            }
-            
-            // Validate date
-            const today = new Date().toISOString().split('T')[0];
-            if (!date || date > today) {
-                document.getElementById('dateError').style.display = 'block';
-                document.getElementById('inputDate').classList.add('error');
-                isValid = false;
-                errors.push("Date is required and cannot be in the future");
-            }
-            
-            // Show validation summary if errors exist
-            if (errors.length > 0) {
-                const summary = document.getElementById('validationSummary');
-                summary.innerHTML = '<strong>Please fix the following errors:</strong><ul>' + 
-                    errors.map(e => `<li>${e}</li>`).join('') + '</ul>';
-                summary.style.display = 'block';
-            }
-            
-            return isValid;
+    // Validation functions
+    function validateForm() {
+        const customer = document.getElementById("inputCustomer").value.trim();
+        const milk = document.getElementById("inputMilk").value;
+        const revenue = document.getElementById("inputRevenue").value;
+        const date = document.getElementById("inputDate").value;
+
+        let isValid = true;
+        const errors = [];
+
+        // Reset errors
+        document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error'));
+        document.getElementById('validationSummary').style.display = 'none';
+
+        // Validate customer
+        if (!customer) {
+            document.getElementById('customerError').style.display = 'block';
+            document.getElementById('inputCustomer').classList.add('error');
+            isValid = false;
+            errors.push("Customer name is required");
         }
 
-        // Open modal for new or existing entry
-        function openDashboardModal(index = -1) {
-            editIndex = index;
-            const modal = document.getElementById("dashboardModal");
-            modal.style.display = "flex";
-            
-            // Reset validation
-            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error'));
-            document.getElementById('validationSummary').style.display = 'none';
-            
-            // Set modal title
-            document.getElementById('modalTitle').textContent = 
-                index >= 0 ? "Edit Sale" : "Add Sale";
-
-            if (index >= 0) {
-                const row = dashboardData[index];
-                document.getElementById("inputCustomer").value = row.customer;
-                document.getElementById("inputMilk").value = row.milk;
-                document.getElementById("inputRevenue").value = row.revenue;
-                document.getElementById("inputDate").value = row.date;
-                document.getElementById("inputStatus").value = row.status;
-            } else {
-                document.querySelectorAll("#dashboardModal input, #dashboardModal select").forEach(i => i.value = "");
-                // Set today as default date
-                document.getElementById("inputDate").value = new Date().toISOString().split('T')[0];
-            }
+        // Validate milk
+        if (!milk || parseFloat(milk) < 1) {
+            document.getElementById('milkError').style.display = 'block';
+            document.getElementById('inputMilk').classList.add('error');
+            isValid = false;
+            errors.push("Milk quantity must be at least 1L");
         }
 
-        function closeDashboardModal() {
-            document.getElementById("dashboardModal").style.display = "none";
-            editIndex = -1;
+        // Validate revenue
+        if (!revenue || parseFloat(revenue) <= 0) {
+            document.getElementById('revenueError').style.display = 'block';
+            document.getElementById('inputRevenue').classList.add('error');
+            isValid = false;
+            errors.push("Revenue must be a positive number");
         }
 
-        function saveDashboardRecord() {
-            if (!validateForm()) {
-                return;
-            }
-            
-            const customer = document.getElementById("inputCustomer").value.trim();
-            const milk = parseFloat(document.getElementById("inputMilk").value);
-            const revenue = parseFloat(document.getElementById("inputRevenue").value);
-            const date = document.getElementById("inputDate").value;
-            const status = document.getElementById("inputStatus").value;
+        // Validate date
+        const today = new Date().toISOString().split('T')[0];
+        if (!date || date > today) {
+            document.getElementById('dateError').style.display = 'block';
+            document.getElementById('inputDate').classList.add('error');
+            isValid = false;
+            errors.push("Date is required and cannot be in the future");
+        }
 
-            const record = { customer, milk, revenue, date, status };
+        // Show validation summary if errors exist
+        if (errors.length > 0) {
+            const summary = document.getElementById('validationSummary');
+            summary.innerHTML = '<strong>Please fix the following errors:</strong><ul>' +
+                errors.map(e => `<li>${e}</li>`).join('') + '</ul>';
+            summary.style.display = 'block';
+        }
 
-            if (editIndex >= 0) {
-                dashboardData[editIndex] = record;
-                logDashboardActivity(`✏️ Edited record for <b>${customer}</b>`);
-            } else {
-                dashboardData.push(record);
-                logDashboardActivity(`🆕 Added new record for <b>${customer}</b>`);
-            }
+        return isValid;
+    }
 
-            closeDashboardModal();
+    // Open modal for new or existing entry
+    function openDashboardModal(index = -1) {
+        editIndex = index;
+        const modal = document.getElementById("dashboardModal");
+        modal.style.display = "flex";
+
+        // Reset validation
+        document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error'));
+        document.getElementById('validationSummary').style.display = 'none';
+
+        // Set modal title
+        document.getElementById('modalTitle').textContent =
+            index >= 0 ? "Edit Sale" : "Add Sale";
+
+        if (index >= 0) {
+            const row = dashboardData[index];
+            document.getElementById("inputCustomer").value = row.customer;
+            document.getElementById("inputMilk").value = row.milk;
+            document.getElementById("inputRevenue").value = row.revenue;
+            document.getElementById("inputDate").value = row.date;
+            document.getElementById("inputStatus").value = row.status;
+        } else {
+            document.querySelectorAll("#dashboardModal input, #dashboardModal select").forEach(i => i.value = "");
+            // Set today as default date
+            document.getElementById("inputDate").value = new Date().toISOString().split('T')[0];
+        }
+    }
+
+    function closeDashboardModal() {
+        document.getElementById("dashboardModal").style.display = "none";
+        editIndex = -1;
+    }
+
+    function saveDashboardRecord() {
+        if (!validateForm()) {
+            return;
+        }
+
+        const customer = document.getElementById("inputCustomer").value.trim();
+        const milk = parseFloat(document.getElementById("inputMilk").value);
+        const revenue = parseFloat(document.getElementById("inputRevenue").value);
+        const date = document.getElementById("inputDate").value;
+        const status = document.getElementById("inputStatus").value;
+
+        const record = { customer, milk, revenue, date, status };
+
+        if (editIndex >= 0) {
+            dashboardData[editIndex] = record;
+            logDashboardActivity(`✏️ Edited record for <b>${customer}</b>`);
+        } else {
+            dashboardData.push(record);
+            logDashboardActivity(`🆕 Added new record for <b>${customer}</b>`);
+        }
+
+        closeDashboardModal();
+        renderDashboardTable();
+        updateDashboardCards();
+        updateDashboardChart();
+        updatePolarChart();
+    }
+
+    function deleteDashboardRecord(index) {
+        const customer = dashboardData[index].customer;
+        if (confirm(`Delete record for ${customer}?`)) {
+            dashboardData.splice(index, 1);
+            logDashboardActivity(`🗑️ Deleted record of <b>${customer}</b>`);
             renderDashboardTable();
             updateDashboardCards();
             updateDashboardChart();
             updatePolarChart();
         }
+    }
 
-        function deleteDashboardRecord(index) {
-            const customer = dashboardData[index].customer;
-            if (confirm(`Delete record for ${customer}?`)) {
-                dashboardData.splice(index, 1);
-                logDashboardActivity(`🗑️ Deleted record of <b>${customer}</b>`);
-                renderDashboardTable();
-                updateDashboardCards();
-                updateDashboardChart();
-                updatePolarChart();
-            }
-        }
+    function renderDashboardTable() {
+        const tbody = document.getElementById("dashboardTableBody");
+        const search = document.getElementById("dashboardSearch").value.toLowerCase();
+        tbody.innerHTML = "";
 
-        function renderDashboardTable() {
-            const tbody = document.getElementById("dashboardTableBody");
-            const search = document.getElementById("dashboardSearch").value.toLowerCase();
-            tbody.innerHTML = "";
-
-            dashboardData.forEach((r, i) => {
-                if (
-                    r.customer.toLowerCase().includes(search) ||
-                    r.status.toLowerCase().includes(search) ||
-                    r.date.includes(search)
-                ) {
-                    const row = `<tr>
+        dashboardData.forEach((r, i) => {
+            if (
+                r.customer.toLowerCase().includes(search) ||
+                r.status.toLowerCase().includes(search) ||
+                r.date.includes(search)
+            ) {
+                const row = `<tr>
                         <td>${r.customer}</td>
                         <td>${r.milk.toFixed(1)}</td>
                         <td>₹${r.revenue.toFixed(2)}</td>
@@ -6067,297 +6240,297 @@
                             <button class="action-btn" onclick="deleteDashboardRecord(${i})" title="Delete"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>`;
-                    tbody.innerHTML += row;
-                }
-            });
-        }
-
-        function updateDashboardCards() {
-            const totalMilk = dashboardData.reduce((sum, r) => sum + r.milk, 0);
-            const totalRevenue = dashboardData.reduce((sum, r) => sum + r.revenue, 0);
-            const customerSet = new Set(dashboardData.map(r => r.customer));
-            const totalCustomers = customerSet.size;
-
-            document.getElementById("cardTotalMilk").textContent = totalMilk.toFixed(1);
-            document.getElementById("cardTotalRevenue").textContent = "₹" + totalRevenue.toFixed(2);
-            document.getElementById("cardTotalCustomers").textContent = totalCustomers;
-
-            // Calculate changes
-            const prevTotalMilk = parseFloat(document.getElementById("cardTotalMilk").dataset.prev) || 0;
-            const prevTotalRevenue = parseFloat(document.getElementById("cardTotalRevenue").dataset.prev) || 0;
-            const prevTotalCustomers = parseInt(document.getElementById("cardTotalCustomers").dataset.prev) || 0;
-            
-            // Save current values for next calculation
-            document.getElementById("cardTotalMilk").dataset.prev = totalMilk;
-            document.getElementById("cardTotalRevenue").dataset.prev = totalRevenue;
-            document.getElementById("cardTotalCustomers").dataset.prev = totalCustomers;
-            
-            // Calculate and display changes
-            const milkChange = totalMilk - prevTotalMilk;
-            const revenueChange = totalRevenue - prevTotalRevenue;
-            const customerChange = totalCustomers - prevTotalCustomers;
-            
-            function formatChange(value, prefix = "") {
-                if (value === 0) return "No change";
-                const sign = value > 0 ? "+" : "";
-                return `${prefix}${sign}${value.toFixed(2)}`;
+                tbody.innerHTML += row;
             }
-            
-            document.getElementById("cardChangeMilk").textContent = formatChange(milkChange, "L");
-            document.getElementById("cardChangeMilk").className = `card-change ${milkChange >= 0 ? 'positive' : 'negative'}`;
-            
-            document.getElementById("cardChangeRevenue").textContent = formatChange(revenueChange, "₹");
-            document.getElementById("cardChangeRevenue").className = `card-change ${revenueChange >= 0 ? 'positive' : 'negative'}`;
-            
-            document.getElementById("cardChangeCustomers").textContent = formatChange(customerChange);
-            document.getElementById("cardChangeCustomers").className = `card-change ${customerChange >= 0 ? 'positive' : 'negative'}`;
-        }
-
-        function updateDashboardChart() {
-            const container = document.getElementById('dashboardChart');
-            container.innerHTML = '';
-            
-            if (dashboardData.length === 0) {
-                container.innerHTML = '<div class="no-data">No data available for chart</div>';
-                return;
-            }
-            
-            // Aggregate data by date
-            const dataByDate = {};
-            dashboardData.forEach(r => {
-                if (!dataByDate[r.date]) {
-                    dataByDate[r.date] = { milk: 0, revenue: 0 };
-                }
-                dataByDate[r.date].milk += r.milk;
-                dataByDate[r.date].revenue += r.revenue;
-            });
-            
-            const dates = Object.keys(dataByDate).sort();
-            const milkData = dates.map(date => dataByDate[date].milk);
-            const revenueData = dates.map(date => dataByDate[date].revenue);
-            
-            // Create chart using Chart.js since Google Charts was causing issues
-            const ctx = document.createElement('canvas');
-            ctx.height = 400;
-            container.appendChild(ctx);
-            
-            if (dashboardChart) dashboardChart.destroy();
-            
-            dashboardChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: dates,
-                    datasets: [
-                        {
-                            label: 'Milk (L)',
-                            data: milkData,
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Revenue (₹)',
-                            data: revenueData,
-                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1,
-                            type: 'line',
-                            yAxisID: 'y1'
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Milk (L)'
-                            }
-                        },
-                        y1: {
-                            position: 'right',
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Revenue (₹)'
-                            },
-                            grid: {
-                                drawOnChartArea: false
-                            }
-                        }
-                    },
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Revenue and Milk Trends Over Time'
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) label += ': ';
-                                    if (context.parsed.y !== null) {
-                                        if (context.datasetIndex === 0) {
-                                            label += context.parsed.y.toFixed(1) + 'L';
-                                        } else {
-                                            label += '₹' + context.parsed.y.toFixed(2);
-                                        }
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function updatePolarChart() {
-            const ctx = document.getElementById('polarChart').getContext('2d');
-            
-            if (dashboardData.length === 0) {
-                if (polarChart) polarChart.destroy();
-                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-                
-                // Draw "No data" message
-                ctx.fillStyle = '#999';
-                ctx.font = '16px Arial';
-                ctx.textAlign = 'center';
-                ctx.fillText('No data available for chart', ctx.canvas.width/2, ctx.canvas.height/2);
-                return;
-            }
-            
-            // Aggregate data by customer
-            const dataByCustomer = {};
-            dashboardData.forEach(r => {
-                if (!dataByCustomer[r.customer]) {
-                    dataByCustomer[r.customer] = { milk: 0, revenue: 0 };
-                }
-                dataByCustomer[r.customer].milk += r.milk;
-                dataByCustomer[r.customer].revenue += r.revenue;
-            });
-            
-            const customers = Object.keys(dataByCustomer);
-            const revenueData = customers.map(customer => dataByCustomer[customer].revenue);
-            
-            // Generate colors
-            const colors = generateColors(customers.length);
-            
-            if (polarChart) polarChart.destroy();
-            
-            polarChart = new Chart(ctx, {
-                type: 'polarArea',
-                data: {
-                    labels: customers,
-                    datasets: [{
-                        data: revenueData,
-                        backgroundColor: colors,
-                        borderColor: '#fff',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { position: 'right' },
-                        title: {
-                            display: true,
-                            text: 'Customer Revenue Distribution'
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.label}: ₹${context.raw.toFixed(2)}`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        r: {
-                            ticks: {
-                                display: false
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        
-        function generateColors(count) {
-            const colors = [];
-            const hueStep = 360 / count;
-            
-            for (let i = 0; i < count; i++) {
-                const hue = i * hueStep;
-                colors.push(`hsla(${hue}, 70%, 60%, 0.7)`);
-            }
-            
-            return colors;
-        }
-
-        function logDashboardActivity(message) {
-            const log = document.getElementById("dashboardActivity");
-            const time = new Date().toLocaleTimeString();
-            const item = document.createElement("li");
-            item.innerHTML = `<span style="color:#888">${time}</span> — ${message}`;
-            
-            // Add fade-in animation
-            item.style.opacity = 0;
-            item.style.transition = 'opacity 0.5s';
-            
-            log.prepend(item);
-            
-            // Trigger reflow to apply animation
-            setTimeout(() => {
-                item.style.opacity = 1;
-            }, 10);
-            
-            // Limit to 10 items
-            if (log.children.length > 10) {
-                log.removeChild(log.lastChild);
-            }
-        }
-
-        function exportDashboardChart() {
-            if (!polarChart) {
-                alert("No chart data to export");
-                return;
-            }
-            
-            const canvas = document.getElementById("polarChart");
-            const url = canvas.toDataURL("image/png");
-            
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'customer-revenue-distribution.png';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-
-        // Initialize
-        window.addEventListener("DOMContentLoaded", () => {
-            // Sample data
-            dashboardData = [
-                { customer: "Ravi Kumar", milk: 120, revenue: 4800, date: "2025-06-01", status: "Completed" },
-                { customer: "Anjali Dairy", milk: 75.5, revenue: 3120, date: "2025-06-02", status: "Pending" },
-                { customer: "Govind Traders", milk: 150, revenue: 6000, date: "2025-06-03", status: "Completed" },
-                { customer: "Lakshmi Dairy", milk: 90.25, revenue: 3780, date: "2025-06-04", status: "Completed" },
-                { customer: "Sharma Milk Center", milk: 110, revenue: 4620, date: "2025-06-05", status: "Completed" },
-                { customer: "Patel Dairy Farm", milk: 85.75, revenue: 3515, date: "2025-06-06", status: "Pending" }
-            ];
-
-            renderDashboardTable();
-            updateDashboardCards();
-            updateDashboardChart();
-            updatePolarChart();
-            logDashboardActivity("📅 Dashboard initialized with sample data");
-
-            document.getElementById("dashboardSearch").addEventListener("input", renderDashboardTable);
         });
-    </script>
+    }
+
+    function updateDashboardCards() {
+        const totalMilk = dashboardData.reduce((sum, r) => sum + r.milk, 0);
+        const totalRevenue = dashboardData.reduce((sum, r) => sum + r.revenue, 0);
+        const customerSet = new Set(dashboardData.map(r => r.customer));
+        const totalCustomers = customerSet.size;
+
+        document.getElementById("cardTotalMilk").textContent = totalMilk.toFixed(1);
+        document.getElementById("cardTotalRevenue").textContent = "₹" + totalRevenue.toFixed(2);
+        document.getElementById("cardTotalCustomers").textContent = totalCustomers;
+
+        // Calculate changes
+        const prevTotalMilk = parseFloat(document.getElementById("cardTotalMilk").dataset.prev) || 0;
+        const prevTotalRevenue = parseFloat(document.getElementById("cardTotalRevenue").dataset.prev) || 0;
+        const prevTotalCustomers = parseInt(document.getElementById("cardTotalCustomers").dataset.prev) || 0;
+
+        // Save current values for next calculation
+        document.getElementById("cardTotalMilk").dataset.prev = totalMilk;
+        document.getElementById("cardTotalRevenue").dataset.prev = totalRevenue;
+        document.getElementById("cardTotalCustomers").dataset.prev = totalCustomers;
+
+        // Calculate and display changes
+        const milkChange = totalMilk - prevTotalMilk;
+        const revenueChange = totalRevenue - prevTotalRevenue;
+        const customerChange = totalCustomers - prevTotalCustomers;
+
+        function formatChange(value, prefix = "") {
+            if (value === 0) return "No change";
+            const sign = value > 0 ? "+" : "";
+            return `${prefix}${sign}${value.toFixed(2)}`;
+        }
+
+        document.getElementById("cardChangeMilk").textContent = formatChange(milkChange, "L");
+        document.getElementById("cardChangeMilk").className = `card-change ${milkChange >= 0 ? 'positive' : 'negative'}`;
+
+        document.getElementById("cardChangeRevenue").textContent = formatChange(revenueChange, "₹");
+        document.getElementById("cardChangeRevenue").className = `card-change ${revenueChange >= 0 ? 'positive' : 'negative'}`;
+
+        document.getElementById("cardChangeCustomers").textContent = formatChange(customerChange);
+        document.getElementById("cardChangeCustomers").className = `card-change ${customerChange >= 0 ? 'positive' : 'negative'}`;
+    }
+
+    function updateDashboardChart() {
+        const container = document.getElementById('dashboardChart');
+        container.innerHTML = '';
+
+        if (dashboardData.length === 0) {
+            container.innerHTML = '<div class="no-data">No data available for chart</div>';
+            return;
+        }
+
+        // Aggregate data by date
+        const dataByDate = {};
+        dashboardData.forEach(r => {
+            if (!dataByDate[r.date]) {
+                dataByDate[r.date] = { milk: 0, revenue: 0 };
+            }
+            dataByDate[r.date].milk += r.milk;
+            dataByDate[r.date].revenue += r.revenue;
+        });
+
+        const dates = Object.keys(dataByDate).sort();
+        const milkData = dates.map(date => dataByDate[date].milk);
+        const revenueData = dates.map(date => dataByDate[date].revenue);
+
+        // Create chart using Chart.js since Google Charts was causing issues
+        const ctx = document.createElement('canvas');
+        ctx.height = 400;
+        container.appendChild(ctx);
+
+        if (dashboardChart) dashboardChart.destroy();
+
+        dashboardChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'Milk (L)',
+                        data: milkData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Revenue (₹)',
+                        data: revenueData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        type: 'line',
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Milk (L)'
+                        }
+                    },
+                    y1: {
+                        position: 'right',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Revenue (₹)'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Revenue and Milk Trends Over Time'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed.y !== null) {
+                                    if (context.datasetIndex === 0) {
+                                        label += context.parsed.y.toFixed(1) + 'L';
+                                    } else {
+                                        label += '₹' + context.parsed.y.toFixed(2);
+                                    }
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function updatePolarChart() {
+        const ctx = document.getElementById('polarChart').getContext('2d');
+
+        if (dashboardData.length === 0) {
+            if (polarChart) polarChart.destroy();
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+            // Draw "No data" message
+            ctx.fillStyle = '#999';
+            ctx.font = '16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('No data available for chart', ctx.canvas.width / 2, ctx.canvas.height / 2);
+            return;
+        }
+
+        // Aggregate data by customer
+        const dataByCustomer = {};
+        dashboardData.forEach(r => {
+            if (!dataByCustomer[r.customer]) {
+                dataByCustomer[r.customer] = { milk: 0, revenue: 0 };
+            }
+            dataByCustomer[r.customer].milk += r.milk;
+            dataByCustomer[r.customer].revenue += r.revenue;
+        });
+
+        const customers = Object.keys(dataByCustomer);
+        const revenueData = customers.map(customer => dataByCustomer[customer].revenue);
+
+        // Generate colors
+        const colors = generateColors(customers.length);
+
+        if (polarChart) polarChart.destroy();
+
+        polarChart = new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: customers,
+                datasets: [{
+                    data: revenueData,
+                    backgroundColor: colors,
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'right' },
+                    title: {
+                        display: true,
+                        text: 'Customer Revenue Distribution'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return `${context.label}: ₹${context.raw.toFixed(2)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        ticks: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function generateColors(count) {
+        const colors = [];
+        const hueStep = 360 / count;
+
+        for (let i = 0; i < count; i++) {
+            const hue = i * hueStep;
+            colors.push(`hsla(${hue}, 70%, 60%, 0.7)`);
+        }
+
+        return colors;
+    }
+
+    function logDashboardActivity(message) {
+        const log = document.getElementById("dashboardActivity");
+        const time = new Date().toLocaleTimeString();
+        const item = document.createElement("li");
+        item.innerHTML = `<span style="color:#888">${time}</span> — ${message}`;
+
+        // Add fade-in animation
+        item.style.opacity = 0;
+        item.style.transition = 'opacity 0.5s';
+
+        log.prepend(item);
+
+        // Trigger reflow to apply animation
+        setTimeout(() => {
+            item.style.opacity = 1;
+        }, 10);
+
+        // Limit to 10 items
+        if (log.children.length > 10) {
+            log.removeChild(log.lastChild);
+        }
+    }
+
+    function exportDashboardChart() {
+        if (!polarChart) {
+            alert("No chart data to export");
+            return;
+        }
+
+        const canvas = document.getElementById("polarChart");
+        const url = canvas.toDataURL("image/png");
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'customer-revenue-distribution.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    // Initialize
+    window.addEventListener("DOMContentLoaded", () => {
+        // Sample data
+        dashboardData = [
+            { customer: "Ravi Kumar", milk: 120, revenue: 4800, date: "2025-06-01", status: "Completed" },
+            { customer: "Anjali Dairy", milk: 75.5, revenue: 3120, date: "2025-06-02", status: "Pending" },
+            { customer: "Govind Traders", milk: 150, revenue: 6000, date: "2025-06-03", status: "Completed" },
+            { customer: "Lakshmi Dairy", milk: 90.25, revenue: 3780, date: "2025-06-04", status: "Completed" },
+            { customer: "Sharma Milk Center", milk: 110, revenue: 4620, date: "2025-06-05", status: "Completed" },
+            { customer: "Patel Dairy Farm", milk: 85.75, revenue: 3515, date: "2025-06-06", status: "Pending" }
+        ];
+
+        renderDashboardTable();
+        updateDashboardCards();
+        updateDashboardChart();
+        updatePolarChart();
+        logDashboardActivity("📅 Dashboard initialized with sample data");
+
+        document.getElementById("dashboardSearch").addEventListener("input", renderDashboardTable);
+    });
+</script>
 
 
 <script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -7521,5 +7694,976 @@
 
 <!-- Load jsPDF AutoTable plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- Google Charts Loader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    // Initialize Google Charts
+    google.charts.load('current', { packages: ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(init);
+
+    // Sample data for chilling centers
+    let chillingCentersData = [
+        { id: 'CC-1001', name: 'Mumbai Central', location: 'Mumbai', totalCapacity: 15000, currentCapacity: 12000, temperature: 3.5, status: 'Active', energyType: 'Solar', lastUpdated: '2023-06-15T08:30:00' },
+        { id: 'CC-1002', name: 'Delhi North', location: 'Delhi', totalCapacity: 25000, currentCapacity: 18000, temperature: 4.2, status: 'Active', energyType: 'Grid Power', lastUpdated: '2023-06-15T09:15:00' },
+        { id: 'CC-1003', name: 'Chennai South', location: 'Chennai', totalCapacity: 18000, currentCapacity: 15000, temperature: 2.8, status: 'Maintenance', energyType: 'Generator', lastUpdated: '2023-06-14T14:20:00' },
+        { id: 'CC-1004', name: 'Kolkata East', location: 'Kolkata', totalCapacity: 22000, currentCapacity: 19500, temperature: 3.9, status: 'Active', energyType: 'Solar', lastUpdated: '2023-06-15T10:45:00' },
+        { id: 'CC-1005', name: 'Bangalore Tech', location: 'Bangalore', totalCapacity: 30000, currentCapacity: 28000, temperature: 4.5, status: 'Active', energyType: 'Battery', lastUpdated: '2023-06-15T11:30:00' }
+    ];
+
+    // Recent activity log
+    let activities = [
+        { id: 'A-1001', type: 'add', message: 'Added new center: Bangalore Tech', timestamp: '2023-06-15T11:30:00' },
+        { id: 'A-1002', type: 'update', message: 'Updated center: Kolkata East', timestamp: '2023-06-15T10:45:00' },
+        { id: 'A-1003', type: 'add', message: 'Added new center: Chennai South', timestamp: '2023-06-14T14:20:00' }
+    ];
+
+    // Initialize app
+    function init() {
+        renderTable();
+        updateSummary();
+        drawAllCharts();
+        renderActivity();
+        setupEventListeners();
+    }
+
+    // Set up event listeners
+    function setupEventListeners() {
+        document.getElementById('entryForm').addEventListener('submit', handleFormSubmit);
+        document.getElementById('addCenterBtn').addEventListener('click', () => showForm());
+        document.getElementById('cancelBtn').addEventListener('click', closeForm);
+        document.getElementById('searchInput').addEventListener('input', filterTable);
+
+        // Add input validation listeners
+        document.getElementById('totalCapacity').addEventListener('input', validateCapacity);
+        document.getElementById('currentCapacity').addEventListener('input', validateCapacity);
+    }
+
+    // Show the form (add/edit)
+    function showForm(id = null) {
+        document.getElementById('formContainer').style.display = 'block';
+        const formTitle = document.getElementById('formTitle');
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('entryForm');
+
+        resetFormErrors();
+
+        if (id) {
+            const center = chillingCentersData.find(c => c.id === id);
+            if (!center) return alert('Center not found');
+
+            formTitle.innerHTML = '<i class="fas fa-edit"></i> Edit Chilling Center';
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Center';
+            document.getElementById('editId').value = center.id;
+            document.getElementById('centerName').value = center.name;
+            document.getElementById('location').value = center.location;
+            document.getElementById('totalCapacity').value = center.totalCapacity;
+            document.getElementById('currentCapacity').value = center.currentCapacity;
+            document.getElementById('temperature').value = center.temperature;
+            document.getElementById('status').value = center.status;
+            document.getElementById('energyType').value = center.energyType;
+        } else {
+            formTitle.innerHTML = '<i class="fas fa-plus-circle"></i> Add New Chilling Center';
+            submitBtn.innerHTML = '<i class="fas fa-plus"></i> Add Center';
+            form.reset();
+            document.getElementById('editId').value = '';
+            // Set default values
+            document.getElementById('totalCapacity').value = 1000;
+            document.getElementById('currentCapacity').value = 0;
+            document.getElementById('temperature').value = 4.0;
+            document.getElementById('status').value = 'Active';
+            document.getElementById('energyType').value = 'Solar';
+        }
+
+        // Scroll to form
+        document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Close the form and reset
+    function closeForm() {
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('entryForm').reset();
+        resetFormErrors();
+    }
+
+    // Reset form error messages
+    function resetFormErrors() {
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+        });
+    }
+
+    // Validate capacity inputs
+    function validateCapacity() {
+        const totalCapacity = parseInt(document.getElementById('totalCapacity').value, 10);
+        const currentCapacity = parseInt(document.getElementById('currentCapacity').value, 10);
+        const error = document.getElementById('currentCapacityError');
+
+        if (isNaN(currentCapacity)) {
+            error.textContent = 'Please enter a valid number';
+            error.style.display = 'block';
+            return false;
+        }
+
+        if (currentCapacity > totalCapacity) {
+            error.textContent = 'Current capacity cannot exceed total capacity';
+            error.style.display = 'block';
+            return false;
+        }
+
+        error.style.display = 'none';
+        return true;
+    }
+
+    // Validate form inputs
+    function validateForm() {
+        let isValid = true;
+        resetFormErrors();
+
+        const name = document.getElementById('centerName').value.trim();
+        const location = document.getElementById('location').value.trim();
+        const totalCapacity = parseInt(document.getElementById('totalCapacity').value, 10);
+        const currentCapacity = parseInt(document.getElementById('currentCapacity').value, 10);
+        const temperature = parseFloat(document.getElementById('temperature').value);
+        const status = document.getElementById('status').value;
+        const energyType = document.getElementById('energyType').value;
+
+        if (!name || name.length < 2) {
+            document.getElementById('nameError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (!location || location.length < 2) {
+            document.getElementById('locationError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (isNaN(totalCapacity) || totalCapacity < 1000) {
+            document.getElementById('totalCapacityError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (isNaN(currentCapacity) || currentCapacity < 0 || currentCapacity > totalCapacity) {
+            document.getElementById('currentCapacityError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (isNaN(temperature) || temperature < 0 || temperature > 10) {
+            document.getElementById('temperatureError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (!status) {
+            document.getElementById('statusError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (!energyType) {
+            document.getElementById('energyTypeError').style.display = 'block';
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Handle add/edit form submit
+    function handleFormSubmit(e) {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        const id = document.getElementById('editId').value || 'CC-' + (1000 + Math.floor(Math.random() * 9000));
+        const name = document.getElementById('centerName').value.trim();
+        const location = document.getElementById('location').value.trim();
+        const totalCapacity = parseInt(document.getElementById('totalCapacity').value, 10);
+        const currentCapacity = parseInt(document.getElementById('currentCapacity').value, 10);
+        const temperature = parseFloat(document.getElementById('temperature').value);
+        const status = document.getElementById('status').value;
+        const energyType = document.getElementById('energyType').value;
+
+        const existingIndex = chillingCentersData.findIndex(c => c.id === id);
+        const actionType = existingIndex >= 0 ? 'update' : 'add';
+
+        if (existingIndex >= 0) {
+            // Update existing center
+            chillingCentersData[existingIndex] = {
+                ...chillingCentersData[existingIndex],
+                name,
+                location,
+                totalCapacity,
+                currentCapacity,
+                temperature,
+                status,
+                energyType,
+                lastUpdated: new Date().toISOString()
+            };
+            logActivity('update', `Updated center: ${name}`);
+        } else {
+            // Add new center
+            chillingCentersData.push({
+                id,
+                name,
+                location,
+                totalCapacity,
+                currentCapacity,
+                temperature,
+                status,
+                energyType,
+                lastUpdated: new Date().toISOString()
+            });
+            logActivity('add', `Added new center: ${name}`);
+        }
+
+        closeForm();
+        renderTable();
+        updateSummary();
+        drawAllCharts();
+    }
+
+    // Render table rows with progress bars
+    function renderTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+
+        chillingCentersData.sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated));
+
+        chillingCentersData.forEach(center => {
+            const tr = document.createElement('tr');
+
+            // Calculate percentage for progress bar
+            const percentage = Math.min(100, Math.round((center.currentCapacity / center.totalCapacity) * 100));
+
+            // Format capacity with commas
+            const formattedTotalCapacity = center.totalCapacity.toLocaleString();
+            const formattedCurrentCapacity = center.currentCapacity.toLocaleString();
+
+            tr.innerHTML = `
+                <td>${center.id}</td>
+                <td>${center.name}</td>
+                <td>${center.location}</td>
+                <td>
+                    <div class="progress-label">${formattedCurrentCapacity} / ${formattedTotalCapacity} L</div>
+                    <div class="capacity-progress">
+                        <div class="capacity-progress-bar" style="width: ${percentage}%"></div>
+                    </div>
+                </td>
+                <td>${center.temperature.toFixed(1)}°C</td>
+                <td><span class="status-badge status-${center.status.toLowerCase()}">${center.status}</span></td>
+                <td>${center.energyType}</td>
+                <td>
+                    <button class="action-btn" onclick="showForm('${center.id}')"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" onclick="deleteCenter('${center.id}')"><i class="fas fa-trash"></i></button>
+                </td>
+            `;
+
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Delete center
+    function deleteCenter(id) {
+        if (confirm('Are you sure you want to delete this chilling center?')) {
+            const center = chillingCentersData.find(c => c.id === id);
+            if (center) {
+                logActivity('delete', `Deleted center: ${center.name}`);
+            }
+
+            chillingCentersData = chillingCentersData.filter(c => c.id !== id);
+            renderTable();
+            updateSummary();
+            drawAllCharts();
+        }
+    }
+
+    // Update summary cards
+    function updateSummary() {
+        const totalCenters = chillingCentersData.length;
+        const avgTemp = totalCenters
+            ? (chillingCentersData.reduce((acc, c) => acc + c.temperature, 0) / totalCenters).toFixed(1)
+            : 0;
+        const totalCapacity = chillingCentersData.reduce((acc, c) => acc + c.totalCapacity, 0);
+        const currentCapacity = chillingCentersData.reduce((acc, c) => acc + c.currentCapacity, 0);
+
+        // Calculate energy mix
+        const energyCounts = chillingCentersData.reduce((acc, c) => {
+            acc[c.energyType] = (acc[c.energyType] || 0) + 1;
+            return acc;
+        }, {});
+
+        let energyMix = "N/A";
+        if (totalCenters > 0) {
+            const solarPercentage = Math.round((energyCounts['Solar'] || 0) / totalCenters * 100);
+            energyMix = `${solarPercentage}% Solar`;
+        }
+
+        document.getElementById('summary_totalCenters').textContent = totalCenters;
+        document.getElementById('summary_avgTemp').textContent = `${avgTemp}°C`;
+        document.getElementById('summary_totalCapacity').textContent = totalCapacity.toLocaleString() + ' L';
+        document.getElementById('summary_currentCapacity').textContent = currentCapacity.toLocaleString() + ' L';
+        document.getElementById('summary_energyMix').textContent = energyMix;
+    }
+
+    // Filter table rows by search input
+    function filterTable() {
+        const filter = document.getElementById('searchInput').value.toLowerCase();
+        const rows = document.getElementById('tableBody').rows;
+
+        for (let row of rows) {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
+        }
+    }
+
+    // Draw all charts
+    function drawAllCharts() {
+        drawTemperatureChart();
+        drawCapacityChart();
+        drawEnergyChart();
+        drawTemperaturePerformanceChart();
+    }
+
+    // Draw Temperature Chart
+    function drawTemperatureChart() {
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Center');
+        data.addColumn('number', 'Temperature (°C)');
+
+        chillingCentersData.forEach(c => {
+            data.addRow([c.name, c.temperature]);
+        });
+
+        const options = {
+            title: 'Current Temperatures',
+            height: 350,
+            colors: ['#4285F4'],
+            hAxis: { title: 'Chilling Centers' },
+            vAxis: {
+                title: 'Temperature (°C)',
+                minValue: 0,
+                maxValue: 10
+            },
+            legend: { position: 'none' },
+            chartArea: { width: '85%', height: '75%' }
+        };
+
+        const chart = new google.visualization.ColumnChart(document.getElementById('temperatureChart'));
+        chart.draw(data, options);
+    }
+
+    // Draw Capacity Chart
+    function drawCapacityChart() {
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Center');
+        data.addColumn('number', 'Total Capacity (L)');
+        data.addColumn('number', 'Current Capacity (L)');
+
+        chillingCentersData.forEach(c => {
+            data.addRow([c.name, c.currentCapacity, c.totalCapacity]);
+        });
+
+        const options = {
+            title: 'Capacity Utilization',
+            height: 350,
+            colors: ['#34A853', '#EA4335'],
+            hAxis: { title: 'Chilling Centers' },
+            vAxis: { title: 'Capacity (L)' },
+            isStacked: false,
+            chartArea: { width: '85%', height: '75%' }
+        };
+
+        const chart = new google.visualization.ColumnChart(document.getElementById('capacityChart'));
+        chart.draw(data, options);
+    }
+
+    // Draw Energy Chart
+    function drawEnergyChart() {
+        const energyCounts = chillingCentersData.reduce((acc, c) => {
+            acc[c.energyType] = (acc[c.energyType] || 0) + 1;
+            return acc;
+        }, {});
+
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Energy Source');
+        data.addColumn('number', 'Count');
+
+        for (const [energyType, count] of Object.entries(energyCounts)) {
+            data.addRow([energyType, count]);
+        }
+
+        const options = {
+            title: 'Energy Source Distribution',
+            height: 350,
+            pieHole: 0.4,
+            colors: ['#4285F4', '#34A853', '#FBBC05', '#EA4335'],
+            chartArea: { width: '90%', height: '90%' }
+        };
+
+        const chart = new google.visualization.PieChart(document.getElementById('energyChart'));
+        chart.draw(data, options);
+    }
+
+    // Draw Temperature Performance Chart
+    function drawTemperaturePerformanceChart() {
+        // Generate mock temperature data for a day
+        const times = ['6am', '8am', '10am', '12pm', '2pm', '4pm', '6pm'];
+        const avgTemps = [4.2, 3.8, 3.5, 4.0, 4.5, 4.2, 3.9];
+
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Time');
+        data.addColumn('number', 'Temperature (°C)');
+
+        times.forEach((time, i) => {
+            data.addRow([time, avgTemps[i]]);
+        });
+
+        const options = {
+            title: 'Temperature Performance (24h)',
+            height: 350,
+            colors: ['#EA4335'],
+            hAxis: { title: 'Time' },
+            vAxis: {
+                title: 'Temperature (°C)',
+                minValue: 0,
+                maxValue: 5
+            },
+            curveType: 'function',
+            legend: { position: 'none' },
+            chartArea: { width: '85%', height: '75%' }
+        };
+
+        const chart = new google.visualization.LineChart(document.getElementById('tempPerformanceChart'));
+        chart.draw(data, options);
+    }
+
+    // Log activity
+    function logActivity(type, message) {
+        const activity = {
+            id: 'A-' + (1000 + Math.floor(Math.random() * 9000)),
+            type,
+            message,
+            timestamp: new Date().toISOString()
+        };
+
+        activities.unshift(activity);
+        renderActivity();
+
+        // Highlight the activity container
+        const container = document.getElementById('activityContainer');
+        container.classList.add('highlight');
+        setTimeout(() => container.classList.remove('highlight'), 1500);
+    }
+
+    // Render activity
+    function renderActivity() {
+        const container = document.getElementById('activityContainer');
+        container.innerHTML = '';
+
+        // Show latest 5 activities
+        const recentActivities = activities.slice(0, 5);
+
+        recentActivities.forEach(activity => {
+            const item = document.createElement('div');
+            item.className = 'activity-item';
+
+            let iconClass = 'fas fa-plus-circle';
+            let iconColor = '#34A853';
+
+            if (activity.type === 'update') {
+                iconClass = 'fas fa-edit';
+                iconColor = '#4285F4';
+            } else if (activity.type === 'delete') {
+                iconClass = 'fas fa-trash-alt';
+                iconColor = '#EA4335';
+            }
+
+            const date = new Date(activity.timestamp);
+            const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const dateString = date.toLocaleDateString();
+
+            item.innerHTML = `
+                <div class="activity-content">
+                    <div class="activity-title"><i class="${iconClass}" style="color: ${iconColor};"></i> ${activity.message}</div>
+                    <div class="activity-time">${dateString} at ${timeString}</div>
+                </div>
+            `;
+
+            container.appendChild(item);
+        });
+
+        if (recentActivities.length === 0) {
+            container.innerHTML = '<div class="activity-item"><div class="activity-content">No recent activity</div></div>';
+        }
+    }
+
+    // Redraw charts on window resize for responsiveness
+    window.addEventListener('resize', drawAllCharts);
+</script>
+
+
+
+<script>
+    // Product options for dropdown
+    const PRODUCT_OPTIONS = [
+        "Milk", "Cheese", "Butter", "Ice Cream",
+        "Yogurt", "Ghee", "Paneer", "Cream",
+        "Milk Powder", "Condensed Milk"
+    ];
+
+    // Sample initial data for processing section
+    let procData = [
+        {
+            id: 1,
+            name: "Alpha Milk Plant",
+            location: "Delhi",
+            capacity: 40000,
+            status: "Active",
+            manager: "Ajay Kumar",
+            products: { Milk: 20000, Butter: 10000, Cheese: 10000 },
+            activity: "Plant created",
+            timestamp: new Date('2023-01-15').getTime()
+        },
+        {
+            id: 2,
+            name: "Beta Dairy",
+            location: "Pune",
+            capacity: 50000,
+            status: "Inactive",
+            manager: "Rita Sen",
+            products: { Yogurt: 30000, IceCream: 20000 },
+            activity: "Temporarily shut down",
+            timestamp: new Date('2023-02-20').getTime()
+        },
+        {
+            id: 3,
+            name: "Gamma Agro Foods",
+            location: "Lucknow",
+            capacity: 45000,
+            status: "Active",
+            manager: "Suresh Yadav",
+            products: { Milk: 25000, Ghee: 10000, Paneer: 10000 },
+            activity: "Daily production ongoing",
+            timestamp: new Date('2023-03-10').getTime()
+        },
+        {
+            id: 4,
+            name: "Delta Dairy Processing",
+            location: "Ahmedabad",
+            capacity: 60000,
+            status: "Maintenance",
+            manager: "Pooja Mehta",
+            products: { Milk: 30000, Butter: 15000, Yogurt: 10000 },
+            activity: "Under scheduled maintenance",
+            timestamp: new Date('2023-04-05').getTime()
+        },
+        {
+            id: 5,
+            name: "Omega Milk Industries",
+            location: "Bangalore",
+            capacity: 55000,
+            status: "Active",
+            manager: "Rahul Desai",
+            products: { Milk: 28000, Cheese: 15000, IceCream: 12000 },
+            activity: "New product line launched",
+            timestamp: new Date('2023-05-18').getTime()
+        }
+    ];
+
+    let procEditingId = null;
+    let stackedBarChart = null;
+
+    function renderProcessingAll() {
+        renderProcCards();
+        renderProcTable();
+        updateProcSummaryCards();
+        renderProcChart();
+        renderProcActivities();
+    }
+
+    function getFilteredProc() {
+        const name = document.getElementById('procSearch').value.toLowerCase();
+        const status = document.getElementById('procStatusFilter').value;
+        return procData.filter(p => {
+            const matchName = !name || p.name.toLowerCase().includes(name);
+            const matchStatus = !status || p.status === status;
+            return matchName && matchStatus;
+        });
+    }
+
+    function renderProcCards() {
+        const container = document.getElementById('procCardView');
+        container.innerHTML = '';
+        const data = getFilteredProc();
+
+        if (data.length === 0) {
+            container.innerHTML = '<div class="no-data">No plants found matching your criteria</div>';
+            return;
+        }
+
+        data.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+      <div class="card-icon"><i class="fas fa-industry"></i></div>
+      <h3>${p.name}</h3>
+      <p><strong><i class="fas fa-map-marker-alt"></i> Location:</strong> ${p.location}</p>
+      <p><strong><i class="fas fa-user-tie"></i> Manager:</strong> ${p.manager}</p>
+      <p><strong><i class="fas fa-power-off"></i> Status:</strong> <span class="status ${getStatusClass(p.status)}">${p.status}</span></p>
+      <p><strong><i class="fas fa-flask"></i> Capacity:</strong> ${p.capacity.toLocaleString()} L</p>
+      <p><strong><i class="fas fa-boxes"></i> Products:</strong> ${Object.entries(p.products).map(([k, v]) => `${k}: ${v}L`).join(', ')}</p>
+      <div class="form-actions">
+        <button class="btn btn-primary" onclick="editProcPlant(${p.id})"><i class="fas fa-edit"></i> Edit</button>
+        <button class="btn btn-danger" onclick="deleteProcPlant(${p.id})"><i class="fas fa-trash"></i> Delete</button>
+      </div>
+    `;
+            container.appendChild(card);
+        });
+    }
+
+    function getStatusClass(status) {
+        switch (status) {
+            case 'Active': return 'status-active';
+            case 'Inactive': return 'status-inactive';
+            case 'Maintenance': return 'status-maintenance';
+            default: return '';
+        }
+    }
+
+    function renderProcTable() {
+        const body = document.getElementById('procTableBody');
+        body.innerHTML = '';
+        const data = getFilteredProc();
+
+        if (data.length === 0) {
+            body.innerHTML = `<tr><td colspan="7" class="text-center">No plants found</td></tr>`;
+            return;
+        }
+
+        data.forEach(p => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+      <td><i class="fas fa-industry"></i> ${p.name}</td>
+      <td><i class="fas fa-map-marker-alt"></i> ${p.location}</td>
+      <td>${p.capacity.toLocaleString()} L</td>
+      <td><span class="status ${getStatusClass(p.status)}">${p.status}</span></td>
+      <td><i class="fas fa-user-tie"></i> ${p.manager}</td>
+      <td>${Object.entries(p.products).map(([k, v]) => `${k}: ${v}L`).join(', ')}</td>
+      <td>
+        <button class="action-btn" onclick="editProcPlant(${p.id})"><i class="fas fa-edit"></i></button>
+        <button class="action-btn" onclick="deleteProcPlant(${p.id})"><i class="fas fa-trash"></i></button>
+      </td>
+    `;
+            body.appendChild(row);
+        });
+    }
+
+    function updateProcSummaryCards() {
+        // Always show overall stats, not filtered stats
+        document.getElementById('procTotalPlants').textContent = procData.length;
+        document.getElementById('procTotalCapacity').textContent =
+            procData.reduce((a, b) => a + b.capacity, 0).toLocaleString() + ' L';
+        document.getElementById('procActivePlants').textContent =
+            procData.filter(p => p.status === 'Active').length;
+        document.getElementById('procTotalProducts').textContent =
+            procData.reduce((a, b) => a + Object.keys(b.products).length, 0);
+    }
+
+    function toggleProcView(view) {
+        document.getElementById('procCardView').style.display = view === 'cards' ? 'grid' : 'none';
+        document.getElementById('procTableView').style.display = view === 'table' ? 'block' : 'none';
+        document.querySelectorAll('.chart-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.chart-btn')[view === 'cards' ? 0 : 1].classList.add('active');
+    }
+
+    function openProcModal() {
+        procEditingId = null;
+        document.getElementById('procModalTitle').textContent = 'Add Processing Plant';
+        document.getElementById('procPlantName').value = '';
+        document.getElementById('procPlantLocation').value = '';
+        document.getElementById('procPlantCapacity').value = '';
+        document.getElementById('procPlantStatus').value = 'Active';
+        document.getElementById('procPlantManager').value = '';
+
+        // Reset product inputs
+        const container = document.getElementById('procProductInputs');
+        container.innerHTML = `
+    <div class="product-row">
+      <select class="productName form-control">
+        <option value="">Select Product</option>
+        ${PRODUCT_OPTIONS.map(p => `<option value="${p}">${p}</option>`).join('')}
+      </select>
+      <input type="number" class="productQty form-control" min="0" placeholder="Liters">
+      <button class="btn btn-danger" onclick="removeProcProduct(this)"><i class="fas fa-trash"></i></button>
+    </div>
+  `;
+
+        document.getElementById('capacityWarning').style.display = 'none';
+        document.getElementById('procModal').style.display = 'flex';
+    }
+
+    function closeProcModal() {
+        document.getElementById('procModal').style.display = 'none';
+    }
+
+    function addProcProduct() {
+        const div = document.createElement('div');
+        div.className = 'product-row';
+        div.innerHTML = `
+    <select class="productName form-control">
+      <option value="">Select Product</option>
+      ${PRODUCT_OPTIONS.map(p => `<option value="${p}">${p}</option>`).join('')}
+    </select>
+    <input type="number" class="productQty form-control" min="0" placeholder="Liters">
+    <button class="btn btn-danger" onclick="removeProcProduct(this)"><i class="fas fa-trash"></i></button>
+  `;
+        document.getElementById('procProductInputs').appendChild(div);
+    }
+
+    function removeProcProduct(btn) {
+        btn.parentElement.remove();
+        validateCapacity();
+    }
+
+    function validateCapacity() {
+        const capacity = parseInt(document.getElementById('procPlantCapacity').value) || 0;
+        let totalProducts = 0;
+
+        document.querySelectorAll('#procProductInputs .product-row').forEach(row => {
+            const qty = parseInt(row.querySelector('.productQty').value) || 0;
+            totalProducts += qty;
+        });
+
+        const warning = document.getElementById('capacityWarning');
+        if (totalProducts > capacity) {
+            warning.style.display = 'block';
+            warning.textContent = `Total products (${totalProducts}L) exceed capacity (${capacity}L)!`;
+            return false;
+        }
+
+        warning.style.display = 'none';
+        return true;
+    }
+
+    function saveProcPlant() {
+        const name = document.getElementById('procPlantName').value.trim();
+        const location = document.getElementById('procPlantLocation').value.trim();
+        const capacity = parseInt(document.getElementById('procPlantCapacity').value);
+        const status = document.getElementById('procPlantStatus').value;
+        const manager = document.getElementById('procPlantManager').value.trim();
+
+        // Basic validation
+        if (!name || !location || !manager || isNaN(capacity) || capacity <= 0) {
+            alert('Please fill all required fields with valid values');
+            return;
+        }
+
+        // Validate product quantities
+        if (!validateCapacity()) {
+            return;
+        }
+
+        // Collect products
+        const products = {};
+        let hasProducts = false;
+
+        document.querySelectorAll('#procProductInputs .product-row').forEach(row => {
+            const pname = row.querySelector('.productName').value;
+            const pqty = parseInt(row.querySelector('.productQty').value) || 0;
+
+            if (pname && pqty > 0) {
+                products[pname] = pqty;
+                hasProducts = true;
+            }
+        });
+
+        if (!hasProducts) {
+            alert('Please add at least one product');
+            return;
+        }
+
+        // Create plant object
+        const plant = {
+            id: procEditingId || Date.now(),
+            name,
+            location,
+            capacity,
+            status,
+            manager,
+            products,
+            activity: procEditingId ? 'Plant updated' : 'Plant created',
+            timestamp: Date.now()
+        };
+
+        // Save to data
+        if (procEditingId) {
+            const index = procData.findIndex(p => p.id === procEditingId);
+            procData[index] = plant;
+        } else {
+            procData.push(plant);
+        }
+
+        closeProcModal();
+        renderProcessingAll();
+    }
+
+    function editProcPlant(id) {
+        const p = procData.find(p => p.id === id);
+        if (!p) return;
+
+        procEditingId = id;
+        document.getElementById('procModalTitle').textContent = 'Edit Plant: ' + p.name;
+        document.getElementById('procPlantName').value = p.name;
+        document.getElementById('procPlantLocation').value = p.location;
+        document.getElementById('procPlantCapacity').value = p.capacity;
+        document.getElementById('procPlantStatus').value = p.status;
+        document.getElementById('procPlantManager').value = p.manager;
+
+        const container = document.getElementById('procProductInputs');
+        container.innerHTML = '';
+
+        Object.entries(p.products).forEach(([k, v]) => {
+            const row = document.createElement('div');
+            row.className = 'product-row';
+            row.innerHTML = `
+      <select class="productName form-control">
+        <option value="">Select Product</option>
+        ${PRODUCT_OPTIONS.map(p =>
+                `<option value="${p}" ${p === k ? 'selected' : ''}>${p}</option>`
+            ).join('')}
+      </select>
+      <input type="number" class="productQty form-control" value="${v}" min="0" placeholder="Liters">
+      <button class="btn btn-danger" onclick="removeProcProduct(this)"><i class="fas fa-trash"></i></button>
+    `;
+            container.appendChild(row);
+        });
+
+        document.getElementById('capacityWarning').style.display = 'none';
+        document.getElementById('procModal').style.display = 'flex';
+    }
+
+    function deleteProcPlant(id) {
+        if (!confirm('Are you sure you want to delete this plant?')) return;
+
+        procData = procData.filter(p => p.id !== id);
+        renderProcessingAll();
+    }
+
+    function renderProcActivities() {
+        const logs = document.getElementById('procActivityLogs');
+        logs.innerHTML = '';
+
+        // Sort by timestamp descending
+        const recent = [...procData]
+            .sort((a, b) => b.timestamp - a.timestamp)
+            .slice(0, 5);
+
+        if (recent.length === 0) {
+            logs.innerHTML = '<div class="no-activity">No recent activities</div>';
+            return;
+        }
+
+        recent.forEach(p => {
+            const item = document.createElement('div');
+            item.className = 'log-item';
+            item.innerHTML = `
+      <div class="log-icon"><i class="fas fa-industry"></i></div>
+      <div class="log-content">
+        <div class="log-title">${p.name}</div>
+        <div class="log-details">${p.activity}</div>
+        <div class="log-time">
+          <i class="far fa-clock"></i> ${formatDate(p.timestamp)}
+        </div>
+      </div>
+    `;
+            logs.appendChild(item);
+        });
+    }
+
+    function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        return date.toLocaleString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
+    function renderProcChart() {
+        const ctx = document.getElementById('procStackedBarChart').getContext('2d');
+
+        // Destroy previous chart instance if exists
+        if (stackedBarChart) {
+            stackedBarChart.destroy();
+        }
+
+        // Prepare data
+        const labels = procData.map(p => p.name);
+        const products = [...new Set(procData.flatMap(p => Object.keys(p.products)))];
+
+        const datasets = products.map((product, i) => {
+            const colors = [
+                '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#6366f1',
+                '#8b5cf6', '#ec4899', '#14b8a6', '#f97316', '#64748b'
+            ];
+
+            return {
+                label: product,
+                data: procData.map(p => p.products[product] || 0),
+                backgroundColor: colors[i % colors.length]
+            };
+        });
+
+        // Create chart
+        stackedBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Plants'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Liters'
+                        },
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Plant-wise Stacked Products'
+                    }
+                }
+            }
+        });
+    }
+
+    // Add event listeners for capacity validation
+    document.getElementById('procPlantCapacity').addEventListener('input', validateCapacity);
+    document.getElementById('procProductInputs').addEventListener('input', function (e) {
+        if (e.target.classList.contains('productQty')) {
+            validateCapacity();
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', renderProcessingAll);
+</script>
 
 </html>
