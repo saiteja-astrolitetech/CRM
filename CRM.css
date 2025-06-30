@@ -107,7 +107,7 @@ canvas {
 .data-section {
     background: var(--card-bg);
     border-radius: 10px;
-    padding: 1.5rem;
+    padding: 1.5rem !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border);
     overflow-x: auto;
@@ -523,13 +523,38 @@ header button:hover {
     transform: scale(1.05);
 }
 
+/* HEADER LAYOUT GROUPING */
+.hdr-left,
+.hdr-center,
+.hdr-right {
+    display: flex;
+    align-items: center;
+}
+
+.hdr-left {
+    gap: 2rem;
+}
+
+.hdr-center {
+    flex: 1;
+    justify-content: center;
+}
+
+.hdr-right {
+    gap: 1rem;
+}
+
+/* Adjust search bar */
 .hdr-search {
+    width: 100%;
+    max-width: 350px;
+    min-width: 200px;
     padding: 8px 15px;
     border-radius: 6px;
     border: 1px solid #ccc;
-    min-width: 200px;
     transition: all 0.3s;
 }
+
 
 .hdr-search:focus {
     border-color: var(--primary);
@@ -623,6 +648,7 @@ header button:hover {
 
 /* Profile section */
 .profile-section {
+    position: relative; /* Add this */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -636,6 +662,28 @@ header button:hover {
     background-color: var(--light-gray);
 }
 
+.profile-name {
+    position: absolute;
+    bottom: -35px; /* Show below the image */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0; /* Hide by default */
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+    z-index: 100;
+}
+
+.profile-section:hover .profile-name {
+    opacity: 1; /* Show on hover */
+}
+
+
 .profile-img {
     width: 40px;
     height: 40px;
@@ -644,10 +692,7 @@ header button:hover {
     border: 2px solid var(--primary);
 }
 
-.profile-name {
-    font-weight: 600;
-    margin-right: 5px;
-}
+
 
 /* ============ LAYOUT ============ */
 .sidebar {
@@ -655,7 +700,7 @@ header button:hover {
     top: 80px;
     left: 0;
     bottom: 0;
-    background: rgb(247, 246, 246);
+    background: white;
     overflow-y: auto;
     padding: 1.5rem;
     transition: transform 0.3s ease;
@@ -681,6 +726,7 @@ header button:hover {
     cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid #6ea0d5; /* ✅ Add this line for soft border */
 }
 
 .sidebar li:hover {
@@ -707,8 +753,7 @@ header button:hover {
 /* ============ BANNERS & SECTIONS ============ */
 .banner {
     background: linear-gradient(to right, #2c3e50, #4ca1af);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: var(--card-bg);
+    color: #ffffff; /* 👈 Force readable text */
     padding: 12px 20px;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -716,6 +761,7 @@ header button:hover {
     font-weight: 600;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .section {
     display: none;
@@ -1050,7 +1096,7 @@ header button:hover {
     background: white;
     padding: 2rem;
     border-radius: 10px;
-    width: 400px;
+    width: 600px;
     max-width: 90%;
     max-height: 90vh;
     text-align: center;
@@ -1095,9 +1141,13 @@ header button:hover {
 }
 
 .chart-box canvas {
-    padding-left: 25%;
-    width: 70% !important;
+    width: 100% !important;
     height: 400px !important;
+}
+
+.chart-box #polarChart{
+    padding-left: 25%;
+    width: 80% !important;
 }
 
 .chart-header {
@@ -1635,7 +1685,6 @@ body {
 .chart-box,
 .setting-card,
 .modal-content,
-.data-section,
 .orders-section {
     padding: 1.25rem !important;
 }
@@ -1723,8 +1772,6 @@ body {
 .section-title {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-top: 2.5rem !important;
-    margin-bottom: 1.5rem !important;
 }
 
 .card-grid,
@@ -1771,26 +1818,7 @@ body {
     height: auto;
 }
 
-
-.edit{
-    background-color:rgb(245, 245, 120); 
-    color:black; 
-    padding:5px;
-    border-radius: 10px;
-    border: 0px none;
-    cursor: pointer;
-}
-
-.delete{
-    background-color:rgb(247, 94, 94); 
-    color:white;
-    padding:5px;
-    border-radius: 10px;
-    border: 0px none;
-    cursor: pointer;
-}
-
-#polarChart{
+#polarChart {
     height: 1000px;
 }
 
@@ -1812,29 +1840,252 @@ body {
     padding: 10px 20px;
     border-radius: 4px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(20px); }
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 }
 
 .invalid {
     border: 1px solid #ff3860 !important;
 }
+
 .error-message {
     color: #ff3860;
     font-size: 0.8rem;
     margin-top: 0.25rem;
 }
+
 .required {
     color: #ff3860;
 }
 
+.capacity-progress {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.capacity-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #2e7d32);
+    text-align: right;
+    padding-right: 5px;
+    font-size: 12px;
+    color: white;
+    line-height: 20px;
+    white-space: nowrap;
+    transition: width 0.5s ease;
+}
+
+.progress-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    z-index: 1;
+}
+
+.btn-edit {
+    background-color: #68a2ff; /* Soft blue */
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-edit:hover {
+    background-color: #2563eb;
+}
+
+.btn-delete {
+    background-color: #ec7d7d; /* Soft red */
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+
+
+  /* Grid Containers */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  /* Stat Card Base Styles */
+  .stat-card {
+    background: #fff;
+    border-left: 5px solid;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 6px 12px;
+  }
+  
+  .stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .stat-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .stat-icon {
+    font-size: 1.6rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 12px;
+    color: #111;
+  }
+  
+  .stat-trend {
+    margin-top: 8px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* Delivery Card Variants */
+  .delivery-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .delivery-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .delivery-title {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .delivery-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 10px;
+  }
+  
+  .delivery-trend {
+    color: #666;
+    font-weight: 500;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Dashboard Cards */
+  .dashboard-card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .card-trend {
+    margin-top: 8px;
+  }
+
+  /* Color Variants */
+  .card-blue { border-color: #2563eb; box-shadow: 0 6px 12px rgba(37, 99, 235, 0.15); }
+  .card-blue .stat-icon, .card-blue .delivery-icon { color: #2563eb; }
+  
+  .card-sky { border-color: #0ea5e9; box-shadow: 0 6px 12px rgba(14, 165, 233, 0.15); }
+  .card-sky .stat-icon { color: #0ea5e9; }
+  
+  .card-amber { border-color: #d97706; box-shadow: 0 6px 12px rgba(217, 119, 6, 0.15); }
+  .card-amber .stat-icon { color: #d97706; }
+  
+  .card-emerald { border-color: #059669; box-shadow: 0 6px 12px rgba(5, 150, 105, 0.15); }
+  .card-emerald .stat-icon { color: #059669; }
+  
+  .card-orange { border-color: #ea580c; box-shadow: 0 6px 12px rgba(234, 88, 12, 0.15); }
+  .card-orange .stat-icon { color: #ea580c; }
+  
+  .card-indigo { border-color: #4f46e5; box-shadow: 0 6px 12px rgba(79, 70, 229, 0.15); }
+  .card-indigo .stat-icon { color: #4f46e5; }
+  
+  .card-green { border-color: #10b981; box-shadow: 0 6px 12px rgba(16, 185, 129, 0.15); }
+  .card-green .stat-icon { color: #10b981; }
+  
+  .card-yellow { border-color: #f59e0b; box-shadow: 0 6px 12px rgba(245, 158, 11, 0.15); }
+  .card-yellow .stat-icon { color: #f59e0b; }
+  
+  .card-rose { border-color: #f43f5e; box-shadow: 0 6px 12px rgba(244, 63, 94, 0.15); }
+  .card-rose .stat-icon { color: #f43f5e; }
+  
+  .card-teal { border-color: #14b8a6; box-shadow: 0 6px 12px rgba(20, 184, 166, 0.15); }
+  .card-teal .stat-icon { color: #14b8a6; }
+  
+  .card-violet { border-color: #8b5cf6; box-shadow: 0 6px 12px rgba(139, 92, 246, 0.15); }
+  .card-violet .stat-icon { color: #8b5cf6; }
+  
+  .card-lime { border-color: #22c55e; box-shadow: 0 6px 12px rgba(34, 197, 94, 0.15); }
+  .card-lime .stat-icon { color: #22c55e; }
+  
+  .card-red { border-color: #ef4444; box-shadow: 0 6px 12px rgba(239, 68, 68, 0.15); }
+  .card-red .stat-icon { color: #ef4444; }
+  
+  .card-purple { border-color: #7c3aed; box-shadow: 0 6px 12px rgba(124, 58, 237, 0.15); }
+  .card-purple .stat-icon { color: #7c3aed; }
+  
+  .card-azure { border-color: #3b82f6; box-shadow: 0 6px 12px rgba(59, 130, 246, 0.15); }
+  .card-azure .stat-icon { color: #3b82f6; }
+
+  /* Trend colors */
+  .positive i { color: #10b981; }
+  .negative i { color: #ef4444; }
